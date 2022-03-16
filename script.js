@@ -118,14 +118,19 @@ function selected(){
 function fill(){
     let all_cells = document.getElementsByTagName("td"); //gets all td elements
 
-    // just set all td element's color
+    // just set all td element's color to colorSelected
     for(c = 0; c < all_cells.length; c++){
         all_cells[c].style.backgroundColor = colorSelected
     }
 }
 
 function clearAll(){
-    alert("Clicked Clear All")
+    let all_cells = document.getElementsByTagName("td"); //gets all td elements
+    
+    // just set all td element's color to ""
+    for(c = 0; c < all_cells.length; c++){
+        all_cells[c].style.backgroundColor = ""
+    }
 }
 
 function fillU(){
