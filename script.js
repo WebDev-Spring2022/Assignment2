@@ -3,11 +3,11 @@ let colorSelected;
 //Adds a row
 function addR() {
     //alert("Clicked Add Row")
-    let grid = document.getElementById("grid");
-    let rows = document.getElementsByTagName("tr");
+    let grid = document.getElementById("grid"); //returns the "table"
+    let rows = document.getElementsByTagName("tr"); //returns and array of all "tr" elements
     // console.log(rows.length);
-    // console.log(grid)
-    // console.log(rows)
+    // console.log(grid) 
+    // console.log(rows) 
     // if(rows.length > 0)
     //     console.log(rows[0].childElementCount)
     
@@ -87,7 +87,26 @@ function removeR() {
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    let grid = document.getElementById("grid");
+    let rows = document.getElementsByTagName("tr");
+    // console.log(rows.length)
+
+    // only remove if there's stuff in the grid
+    if(grid.childElementCount > 0){
+
+        for(r = 0; r < rows.length; r++){
+            rows[r].removeChild(rows[r].lastElementChild)
+        }
+
+        // if I remove all the columns the rows still stay (they're just empty)
+        // so I check if the user removed all the cells in the first row
+        // if the user did then remove all rows
+        if(rows[0].childElementCount === 0){
+            while(grid.lastElementChild){
+                grid.removeChild(grid.lastElementChild)
+            }
+        }
+    }
 }
 //sets global var for selected color
 function selected(){
