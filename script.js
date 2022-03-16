@@ -116,7 +116,12 @@ function selected(){
 }
 
 function fill(){
-    alert("Clicked Fill All")
+    let all_cells = document.getElementsByTagName("td"); //gets all td elements
+
+    // just set all td element's color
+    for(c = 0; c < all_cells.length; c++){
+        all_cells[c].style.backgroundColor = colorSelected
+    }
 }
 
 function clearAll(){
@@ -124,16 +129,16 @@ function clearAll(){
 }
 
 function fillU(){
-    let cols = document.getElementsByTagName("td");
-    // console.log(cols)
-    //do only if there are td elements
-    if(cols.length > 0){
+    let all_cells = document.getElementsByTagName("td");
+    // console.log(all_cells)
+    // do only if there are td elements
+    if(all_cells.length > 0){
         // loop through each and see if they don't have a color assigned to them
         // if they don't assign the selected one
-        for(c = 0; c < cols.length; c++){
-            // console.log(cols[c].style.backgroundColor)
-            if(cols[c].style.backgroundColor == ""){
-               cols[c].style.backgroundColor = colorSelected
+        for(c = 0; c < all_cells.length; c++){
+            // console.log(all_cells[c].style.backgroundColor)
+            if(all_cells[c].style.backgroundColor == ""){
+                all_cells[c].style.backgroundColor = colorSelected
             }
         }   
     }
