@@ -72,8 +72,6 @@ function addC() {
             rows[r].appendChild(new_row_element)
         }
     }
-
-
     
 }
 
