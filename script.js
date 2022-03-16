@@ -11,6 +11,7 @@ function addR() {
     // if(rows.length > 0)
     //     console.log(rows[0].childElementCount)
     
+    // neccessary check if grid hasn't been made yet
     if (rows.length === 0) {
         // console.log("row == 0 happens")
         let row = document.createElement("tr");
@@ -24,6 +25,8 @@ function addR() {
     }
 
     else{
+        // else just make a new row and append new td elements to it
+        //  then append that new row to the grid
         let new_row = document.createElement("tr");
         for(r = 0; r < rows[0].childElementCount; r++){
             let new_col_element = document.createElement("td");
@@ -39,9 +42,37 @@ function addR() {
 }
 //Adds a column
 function addC() {
-    //alert("Clicked Add Col")
+    let grid = document.getElementById("grid");
+    let rows = document.getElementsByTagName("tr");
     let cols = document.getElementsByTagName("td");
-    console.log(cols.length); 
+    // console.log(cols); 
+
+    // neccessary check if grid hasn't been made yet
+    if (rows.length === 0) {
+        // console.log("row == 0 happens")
+        let row = document.createElement("tr");
+        let col = document.createElement("td");
+        col.onclick = function (){
+            this.style.backgroundColor = colorSelected;
+        };
+        row.appendChild(col);
+        grid.appendChild(row);
+
+    }
+
+    else{
+        // else go through each row
+        // append a new td element to each row
+        for(r = 0; r < rows.length; r++){
+            // console.log("for loop happens")
+            let new_row_element = document.createElement("td");
+            new_row_element.onclick = function (){
+            this.style.backgroundColor = colorSelected;
+            };
+            rows[r].appendChild(new_row_element)
+        }
+    }
+
 
     
 }
@@ -49,6 +80,7 @@ function addC() {
 //Removes a row
 function removeR() {
     alert("Clicked Remove Row")
+
 }
 //Remove a column
 function removeC() {
