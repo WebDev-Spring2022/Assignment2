@@ -11,6 +11,7 @@ function addR() {
     // if(rows.length > 0)
     //     console.log(rows[0].childElementCount)
     
+    // neccessary check if grid hasn't been made yet
     if (rows.length === 0) {
         // console.log("row == 0 happens")
         let row = document.createElement("tr");
@@ -24,6 +25,8 @@ function addR() {
     }
 
     else{
+        // else just make a new row and append new td elements to it
+        //  then append that new row to the grid
         let new_row = document.createElement("tr");
         for(r = 0; r < rows[0].childElementCount; r++){
             let new_col_element = document.createElement("td");
@@ -75,6 +78,7 @@ function addC() {
 //Removes a row
 function removeR() {
     alert("Clicked Remove Row")
+
 }
 //Remove a column
 function removeC() {
