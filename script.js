@@ -77,7 +77,12 @@ function addC() {
 
 //Removes a row
 function removeR() {
-    alert("Clicked Remove Row")
+    let grid = document.getElementById("grid");
+    // console.log(grid)
+    // first, gotta check if there exists children in grid
+    //      if there is, then remove the last child (which would be the last row)
+    if(grid.childElementCount > 0)
+        grid.removeChild(grid.lastElementChild)
 
 }
 //Remove a column
