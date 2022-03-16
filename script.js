@@ -67,9 +67,10 @@ function addC() {
             // console.log("for loop happens")
             let new_row_element = document.createElement("td");
             new_row_element.onclick = function (){
-            this.style.backgroundColor = colorSelected;
+                this.style.backgroundColor = colorSelected;
             };
             rows[r].appendChild(new_row_element)
+            // console.log(rows[r])
         }
     }
     
@@ -123,5 +124,17 @@ function clearAll(){
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    let cols = document.getElementsByTagName("td");
+    // console.log(cols)
+    //do only if there are td elements
+    if(cols.length > 0){
+        // loop through each and see if they don't have a color assigned to them
+        // if they don't assign the selected one
+        for(c = 0; c < cols.length; c++){
+            // console.log(cols[c].style.backgroundColor)
+            if(cols[c].style.backgroundColor == ""){
+               cols[c].style.backgroundColor = colorSelected
+            }
+        }   
+    }
 }
